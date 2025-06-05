@@ -1,0 +1,49 @@
+{
+    "name": "ai-code-analyzer",
+    "version": "1.0.0",
+    "description": "AI Code Analyzer - Monorepo with VSCode extension and Next.js web application",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "npm run build --workspaces",
+        "build:core": "npm run build --workspace=packages/core",
+        "build:extension": "npm run build --workspace=packages/extension",
+        "build:web-app": "npm run build --workspace=packages/web-app",
+        "test": "npm run test --workspaces",
+        "test:core": "npm run test --workspace=packages/core",
+        "test:extension": "npm run test --workspace=packages/extension",
+        "test:web-app": "npm run test --workspace=packages/web-app",
+        "dev": "npm run dev --workspaces",
+        "dev:extension": "npm run dev --workspace=packages/extension",
+        "dev:web-app": "npm run dev --workspace=packages/web-app",
+        "clean": "npm run clean --workspaces",
+        "lint": "npm run lint --workspaces",
+        "type-check": "npm run type-check --workspaces",
+        "package:extension": "npm run package --workspace=packages/extension"
+    },
+    "devDependencies": {
+        "@types/node": "^20.10.0",
+        "typescript": "^5.3.0",
+        "lerna": "^8.0.0",
+        "concurrently": "^8.2.0"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/ai-code-analyzer.git"
+    },
+    "keywords": [
+        "ai",
+        "code-analysis",
+        "vscode-extension",
+        "typescript",
+        "monorepo"
+    ],
+    "author": "Your Name",
+    "license": "MIT"
+}

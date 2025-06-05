@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "lib": [
+            "ES2020"
+        ],
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "composite": true,
+        "incremental": true,
+        "tsBuildInfoFile": ".tsbuildinfo"
+    },
+    "references": [
+        {
+            "path": "./packages/core"
+        },
+        {
+            "path": "./packages/extension"
+        },
+        {
+            "path": "./packages/web-app"
+        }
+    ],
+    "files": [],
+    "include": [],
+    "exclude": [
+        "node_modules",
+        "**/node_modules",
+        "**/dist",
+        "**/out",
+        "**/.next"
+    ]
+}

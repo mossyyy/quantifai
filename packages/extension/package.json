@@ -1,0 +1,103 @@
+{
+    "name": "ai-code-analyzer",
+    "displayName": "AI Code Analyzer",
+    "description": "Analyze code changes to understand AI vs human contribution and review quality",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "ai-analyzer.showReport",
+                "title": "Show AI Attribution Report"
+            },
+            {
+                "command": "ai-analyzer.analyzeCurrentFile",
+                "title": "Analyze Current File"
+            },
+            {
+                "command": "ai-analyzer.generateCommitSummary",
+                "title": "Generate Commit Summary"
+            },
+            {
+                "command": "ai-analyzer.showChangeTimeline",
+                "title": "Show Change Timeline"
+            },
+            {
+                "command": "ai-analyzer.exportMetrics",
+                "title": "Export Metrics for Analysis"
+            }
+        ],
+        "configuration": {
+            "title": "AI Code Analyzer",
+            "properties": {
+                "aiCodeAnalyzer.enableLogging": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable comprehensive metric logging"
+                },
+                "aiCodeAnalyzer.logLevel": {
+                    "type": "string",
+                    "enum": [
+                        "debug",
+                        "info",
+                        "warn",
+                        "error"
+                    ],
+                    "default": "info",
+                    "description": "Logging level"
+                },
+                "aiCodeAnalyzer.aiDetectionSensitivity": {
+                    "type": "number",
+                    "default": 0.7,
+                    "minimum": 0.1,
+                    "maximum": 1,
+                    "description": "AI detection sensitivity threshold"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run build",
+        "build": "npm run build:core && tsc -b",
+        "build:core": "npm run build --workspace=@ai-analyzer/core",
+        "compile": "tsc -b",
+        "dev": "tsc -b --watch",
+        "watch": "tsc -b --watch",
+        "clean": "rm -rf out .tsbuildinfo",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "jest --no-cache",
+        "test:unit": "jest test/unit --no-cache",
+        "test:integration": "jest test/integration --no-cache",
+        "test:e2e": "jest test/e2e --no-cache",
+        "test:watch": "jest --watch --no-cache",
+        "test:coverage": "jest --coverage --no-cache",
+        "type-check": "tsc --noEmit",
+        "package": "vsce package"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.0",
+        "@types/node": "16.x",
+        "@types/uuid": "^10.0.0",
+        "@types/vscode": "^1.74.0",
+        "@typescript-eslint/eslint-plugin": "^5.45.0",
+        "@typescript-eslint/parser": "^5.45.0",
+        "eslint": "^8.28.0",
+        "jest": "^29.5.0",
+        "ts-jest": "^29.1.0",
+        "typescript": "^4.9.4"
+    },
+    "dependencies": {
+        "@ai-analyzer/core": "file:../core",
+        "uuid": "^9.0.0"
+    }
+}
