@@ -1,9 +1,9 @@
 # AI Code Analyzer - Human Preface
 
 ## High Level Summary
-This is an exploration of profiling file changes to identify LLM code production and modifications. This is not meant to be used in any way other than exploratory. At a super high level: 
+This is an exploration of profiling file changes to identify LLM code production and modifications. This is not meant to be used in any way other than exploratory. At a super high level there's two components to this project a VS Code extension and a Web App: 
 1. The extension logs out metrics on each "change" aka local history point in vs code. This is logged out into the `/.vscode` folder in the workspace as change-events.jsonl. 
-2. There's of features that can then be calculated off of these raw events to quantify whether or not the typing was extremely fast. There's a web app that you can use to visualise these for each bucket of changes. 
+2. A web app can then be used to visualise those metrics and features to explore classification thresholds and weightings and see how code changes over time would be classified.  
 
 I've dabbled with a few other ideas around how to create summaries of all the prior changes at the point of a commit. I think realistically though you'd want to be blasting sanitised `change-events.jsonl` to a remote endpoint and doing all the classification work on there. 
 
